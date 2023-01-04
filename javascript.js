@@ -1,7 +1,7 @@
 const userRock = document.getElementById("rock");
 const userPaper = document.getElementById("paper");
 const userScissors = document.getElementById("scissors");
-
++
 const getComputerChoice = () => {
     const randomChoice = Math.floor(Math.random() * 3);
     switch (randomChoice) {
