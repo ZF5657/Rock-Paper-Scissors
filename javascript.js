@@ -1,7 +1,7 @@
 const userRock = document.getElementById("rock");
 const userPaper = document.getElementById("paper");
 const userScissors = document.getElementById("scissors");
-+
+
 const getComputerChoice = () => {
     const randomChoice = Math.floor(Math.random() * 3);
     switch (randomChoice) {
@@ -17,22 +17,28 @@ const getComputerChoice = () => {
     };
 };
 
-userRock.addEventListener('click', function() {
-    let userchoice = 'rock';
-    playGame(userChoice, computerChoice);
-});
-
-userPaper.addEventListener('click', function() {
-    let userchoice = 'paper';
-    playGame(userChoice, computerChoice);
-});
-
-userScissors.addEventListener('click', function() {
-    let userchoice = 'scissors';
-    playGame(userChoice, computerChoice);
-});
-
 const computerChoice = getComputerChoice();
+
+if(userRock){
+    userRock.addEventListener('click', () => {
+        let userchoice = 'rock';
+        decideWinner(userChoice, computerChoice);
+    });
+  };
+
+  if(userPaper){
+    userPaper.addEventListener('click', () => {
+        let userchoice = 'paper';
+        decideWinner(userChoice, computerChoice);
+    });
+  };
+
+  if(userScissors){
+    userRock.addEventListener('click', () => {
+        let userchoice = 'scissors';
+        decideWinner(userChoice, computerChoice);
+    });
+  };
 
 const decideWinner = (userChoice, computerChoice) => {
     console.log(`You selected ${userChoice}.`);
@@ -65,5 +71,3 @@ const decideWinner = (userChoice, computerChoice) => {
         }
     };
 };
-
-const playGame = decideWinner('rock', computerChoice);
