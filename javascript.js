@@ -1,6 +1,10 @@
+const userRock = document.getElementById("rock");
+const userPaper = document.getElementById("paper");
+const userScissors = document.getElementById("scissors");
+
 const getComputerChoice = () => {
-    const randomNumber = Math.floor(Math.random() * 3);
-    switch (randomNumber) {
+    const randomChoice = Math.floor(Math.random() * 3);
+    switch (randomChoice) {
         case 0:
             return 'rock';
         break;
@@ -10,57 +14,56 @@ const getComputerChoice = () => {
         case 2:
             return 'scissors';
         break;
-    }
-}
+    };
+};
 
-const computerChoice = getComputerChoice;
+userRock.addEventListener('click', function() {
+    let userchoice = 'rock';
+    playGame(userChoice, computerChoice);
+});
 
-let userChoice = 'rock';
+userPaper.addEventListener('click', function() {
+    let userchoice = 'paper';
+    playGame(userChoice, computerChoice);
+});
 
-console.log(`You chose ${userChoice}.`);
+userScissors.addEventListener('click', function() {
+    let userchoice = 'scissors';
+    playGame(userChoice, computerChoice);
+});
 
-console.log(`The computer chose ${getComputerChoice(computerChoice)}.`);
+const computerChoice = getComputerChoice();
 
-const playGame = (computerChoice, userChoice) => {
+const decideWinner = (userChoice, computerChoice) => {
+    console.log(`You selected ${userChoice}.`);
+    console.log(`The computer selected ${computerChoice}`);
     if (userChoice === computerChoice) {
         return 'It\'s a draw!';
-    }
+    };
     if (userChoice === 'rock') {
-        if (computerChoice === 1) {
+        if (computerChoice === 'paper') {
             return 'You lose!';
         }
-        else if (computerChoice === 0) {
-            return 'It\'s a draw!';
-        }
         else {
-            computerChoice === 2;
             return 'You win!';
         }
-    }
-    else if (userChoice === 'paper') {
-        if (computerChoice === 2) {
+    };
+    if (userChoice === 'paper') {
+        if (computerChoice === 'scissors') {
             return 'You lose!';
         }
-        else if (computerChoice === 1) {
-            return 'It\'s a draw!';
-        }
         else {
-            computerChoice === 0;
             return 'You win!';
         }
-    }
-    else if (userChoice === 'scissors') {
-        if (computerChoice === 0) {
+    };
+    if (userChoice === 'scissors') {
+        if (computerChoice === 'rock') {
             return 'You lose!';
         }
-        else if (computerChoice === 2) {
-            return 'It\'s a draw!';
-        }
         else {
-            computerChoice === 1;
             return 'You win!';
         }
-    }
-}
+    };
+};
 
-console.log(playGame(computerChoice, userChoice));
+const playGame = decideWinner('rock', computerChoice);
