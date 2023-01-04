@@ -1,7 +1,3 @@
-const losingStatement = 'You lose!'
-const winningStatement = 'You win!'
-const drawStatement = 'It\'s a draw!'
-
 const getComputerChoice = () => {
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
@@ -19,40 +15,52 @@ const getComputerChoice = () => {
 
 const computerChoice = getComputerChoice;
 
+let userChoice = 'rock';
+
+console.log(`You chose ${userChoice}.`);
+
+console.log(`The computer chose ${getComputerChoice(computerChoice)}.`);
+
 const playGame = (computerChoice, userChoice) => {
-    if userChoice === 'rock' {
-        if computerChoice === 'paper' {
-            return losingStatement;
+    if (userChoice === computerChoice) {
+        return 'It\'s a draw!';
+    }
+    if (userChoice === 'rock') {
+        if (computerChoice === 1) {
+            return 'You lose!';
         }
-        else if computerChoice === 'rock' {
-            return drawStatement;
+        else if (computerChoice === 0) {
+            return 'It\'s a draw!';
         }
         else {
-            return winningStatement;
+            computerChoice === 2;
+            return 'You win!';
         }
     }
-
-    if userChoice === 'paper' {
-        if computerChoice === 'scissors' {
-            return losingStatement;
+    else if (userChoice === 'paper') {
+        if (computerChoice === 2) {
+            return 'You lose!';
         }
-        else if computerChoice === 'paper' {
-            return drawStatement;
+        else if (computerChoice === 1) {
+            return 'It\'s a draw!';
         }
         else {
-            return winningStatement;
+            computerChoice === 0;
+            return 'You win!';
         }
     }
-
-    if userChoice === 'scissors' {
-        if computerChoice === 'rock' {
-            return losingStatement;
+    else if (userChoice === 'scissors') {
+        if (computerChoice === 0) {
+            return 'You lose!';
         }
-        else if computerChoice === 'scissors' {
-            return drawStatement;
+        else if (computerChoice === 2) {
+            return 'It\'s a draw!';
         }
         else {
-            return winningStatement;
+            computerChoice === 1;
+            return 'You win!';
         }
     }
 }
+
+console.log(playGame(computerChoice, userChoice));
