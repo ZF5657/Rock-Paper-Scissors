@@ -1,8 +1,13 @@
-const userRock = document.getElementById("rock");
-const userPaper = document.getElementById("paper");
-const userScissors = document.getElementById("scissors");
+//Add buttons into game
+const userRock = document.getElementsByClassName("rock");
+const userPaper = document.getElementsByClassName("paper");
+const userScissors = document.getElementsByClassName("scissors");
+const userChoice = [userRock,userPaper,userScissors];
 
-const getComputerChoice = () => {
+
+
+  //Randomized computer selection
+  const getComputerChoice = () => {
     const randomChoice = Math.floor(Math.random() * 3);
     switch (randomChoice) {
         case 0:
@@ -19,27 +24,18 @@ const getComputerChoice = () => {
 
 const computerChoice = getComputerChoice();
 
-if(userRock){
-    userRock.addEventListener('click', () => {
-        let userchoice = 'rock';
-        decideWinner(userChoice, computerChoice);
-    });
-  };
 
-  if(userPaper){
-    userPaper.addEventListener('click', () => {
-        let userchoice = 'paper';
-        decideWinner(userChoice, computerChoice);
-    });
-  };
 
-  if(userScissors){
-    userRock.addEventListener('click', () => {
-        let userchoice = 'scissors';
-        decideWinner(userChoice, computerChoice);
-    });
-  };
+//Adds button function and starts the game
+userChoice.forEach(choices => {
+    choices[0].addEventListener("click", function() {
+        console.log(decideWinner(userChoice, computerChoice));
+    })
+});
 
+
+
+//Determines who wins
 const decideWinner = (userChoice, computerChoice) => {
     console.log(`You selected ${userChoice}.`);
     console.log(`The computer selected ${computerChoice}`);
@@ -71,3 +67,4 @@ const decideWinner = (userChoice, computerChoice) => {
         }
     };
 };
+
