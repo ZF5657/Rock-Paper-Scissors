@@ -1,13 +1,11 @@
-//Add buttons into game
-const userRock = document.getElementsByClassName("rock");
-const userPaper = document.getElementsByClassName("paper");
-const userScissors = document.getElementsByClassName("scissors");
-const userChoice = [userRock,userPaper,userScissors];
+//Refrences buttons for choices variable
+const choices = document.querySelectorAll('button');
+let userChoice;
 
 
 
-  //Randomized computer selection
-  const getComputerChoice = () => {
+//Randomized computer selection
+const getComputerChoice = () => {
     const randomChoice = Math.floor(Math.random() * 3);
     switch (randomChoice) {
         case 0:
@@ -27,8 +25,9 @@ const computerChoice = getComputerChoice();
 
 
 //Adds button function and starts the game
-userChoice.forEach(choices => {
-    choices[0].addEventListener("click", function() {
+choices.forEach(choices => {
+    choices.addEventListener("click", (i) => {
+        userChoice = i.target.id
         console.log(decideWinner(userChoice, computerChoice));
     })
 });
