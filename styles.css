@@ -1,11 +1,26 @@
 body {
     background-color: beige;
+    text-align: center;
+}
+
+.MyButtons {
+    margin-right: 35px;
 }
 
 button {
     background-color:rgb(142, 198, 247);
     height: 50px;
-    width: 100px;
+    width: 130px;
     font-weight: 700;
-    margin-left: 20px;
+    margin-left: 35px;
+}
+
+.userSelection {
+    margin-top: 50px;
+    color: blue;
+}
+
+.computerSelection {
+    margin-top: 30px;
+    color: blue;
 }
