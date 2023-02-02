@@ -20,14 +20,14 @@ const getComputerChoice = () => {
     };
 };
 
-const computerChoice = getComputerChoice();
-
-
+//const computerChoice = getComputerChoice() needs to be inside event listener
+//When inside, getComputerChoice is triggered each click
 
 //Adds button function and starts the game
 choices.forEach(choices => {
     choices.addEventListener("click", (i) => {
         userChoice = i.target.id
+        const computerChoice = getComputerChoice();
         console.log(decideWinner(userChoice, computerChoice));
     })
 });
