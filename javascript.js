@@ -1,5 +1,8 @@
 //Refrences buttons for choices variable
 const choices = document.querySelectorAll('button');
+const userP = document.getElementById("userSelection");
+const computerP = document.getElementById("computerSelection");
+const gameMessage = document.getElementById("gameMessage");
 let userChoice;
 
 
@@ -28,7 +31,9 @@ choices.forEach(choices => {
     choices.addEventListener("click", (i) => {
         userChoice = i.target.id
         const computerChoice = getComputerChoice();
-        console.log(decideWinner(userChoice, computerChoice));
+        userP.textContent = `You selected ${userChoice}.`;
+        computerP.textContent = `Computer selected ${computerChoice}.`;
+        gameMessage.textContent = decideWinner(userChoice, computerChoice);
     })
 });
 
@@ -36,8 +41,6 @@ choices.forEach(choices => {
 
 //Determines who wins
 const decideWinner = (userChoice, computerChoice) => {
-    console.log(`You selected ${userChoice}.`);
-    console.log(`The computer selected ${computerChoice}`);
     if (userChoice === computerChoice) {
         return 'It\'s a draw!';
     };

@@ -13,14 +13,13 @@ button {
     width: 130px;
     font-weight: 700;
     margin-left: 35px;
+    margin-bottom: 30px;
 }
 
 .userSelection {
     margin-top: 50px;
-    color: blue;
 }
 
 .computerSelection {
     margin-top: 30px;
-    color: blue;
 }
