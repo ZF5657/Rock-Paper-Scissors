@@ -3,6 +3,9 @@ const choices = document.querySelectorAll('button');
 const userP = document.getElementById("userSelection");
 const computerP = document.getElementById("computerSelection");
 const gameMessage = document.getElementById("gameMessage");
+const winText = 'You win!'
+const loseText = 'You lose!'
+const drawText = 'It\'s a draw!'
 let userChoice;
 
 
@@ -42,30 +45,37 @@ choices.forEach(choices => {
 //Determines who wins
 const decideWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) {
-        return 'It\'s a draw!';
+        gameMessage.style.color = 'black';
+        return drawText;
     };
     if (userChoice === 'rock') {
         if (computerChoice === 'paper') {
-            return 'You lose!';
+            gameMessage.style.color = 'red';
+            return loseText;
         }
         else {
-            return 'You win!';
+            gameMessage.style.color = 'green';
+            return winText;
         }
     };
     if (userChoice === 'paper') {
         if (computerChoice === 'scissors') {
-            return 'You lose!';
+            gameMessage.style.color = 'red';
+            return loseText;
         }
         else {
-            return 'You win!';
+            gameMessage.style.color = 'green';
+            return winText;
         }
     };
     if (userChoice === 'scissors') {
         if (computerChoice === 'rock') {
-            return 'You lose!';
+            gameMessage.style.color = 'red';
+            return loseText;
         }
         else {
-            return 'You win!';
+            gameMessage.style.color = 'green';
+            return winText;
         }
     };
 };
